@@ -1,0 +1,34 @@
+package com.chaox.sell.product.repository;
+
+import com.chaox.sell.product.model.ProductCategory;
+import org.hibernate.validator.constraints.br.TituloEleitoral;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.List;
+
+import static org.junit.Assert.*;
+
+/**
+ * @Author: LiQiongchao
+ * @Date: 2019/6/18 23:29
+ */
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class ProductCategoryRepositoryTest {
+
+    @Autowired
+    private ProductCategoryRepository productCategoryRepository;
+
+    @Test
+    public void findByCategoryType() {
+        List<ProductCategory> byCategoryType = productCategoryRepository.findByCategoryType(1);
+        Assert.assertTrue(byCategoryType.size() > 0);
+    }
+
+
+}
